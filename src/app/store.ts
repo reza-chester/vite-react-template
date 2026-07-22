@@ -7,7 +7,9 @@ import fileUploadSlice from "./Reducers/fileUploadSlice";
 import adminAccessSlice from "./Reducers/adminAccessSlice";
 import userLevelAccessSlice from "./Reducers/userLevelAccessSlice";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
-
+// import.meta.env.DEV      // true در npm run dev
+// import.meta.env.PROD     // true بعد از build
+// import.meta.env.MODE     // "development" | "production"
 const reducers = combineReducers({
   token: tokenSlice,
   menu: menuSlice,
@@ -37,7 +39,7 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const store = configureStore({
   reducer: persistedReducer,
-  devTools: process.env.NODE_ENV !== "production",
+  devTools: import.meta.env.MODE !== "production",
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
