@@ -1,0 +1,62 @@
+@theme {
+
+    --animate-fade: fade .5s ease-in-out;
+    --animate-slide-up: slideUp .25s ease;
+    --animate-slide-in: slideIn .35s ease;
+    --animate-float-up: floatUp .8s ease-out forwards;
+  
+  }
+  
+  @keyframes fade {
+  
+    from {
+      opacity:0;
+    }
+  
+    to {
+      opacity:1;
+    }
+  
+  }
+  
+  @keyframes slideUp {
+  
+    from{
+      transform:translateY(100%);
+      opacity:0;
+    }
+  
+    to{
+      transform:translateY(0);
+      opacity:1;
+    }
+  
+  }
+  
+  @keyframes slideIn {
+  
+    from{
+      transform:translateY(100%);
+      opacity:0;
+    }
+  
+    to{
+      transform:translateY(0);
+      opacity:1;
+    }
+  
+  }
+  
+  @keyframes floatUp {
+  
+    from{
+      opacity:1;
+      transform:translateY(0);
+    }
+  
+    to{
+      opacity:0;
+      transform:translateY(-30px) scale(1.2);
+    }
+  
+  }

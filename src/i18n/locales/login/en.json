@@ -1,5 +1,13 @@
 {
     "p1": "MTNIrancell | Operating Model & Methods Department",
-    "p2": "Enterprise Process Hub"
+    "p2": "Enterprise Process Hub",
+    "entersignin":"Sign in",
+    "usernamelabel":"Username",
+    "enterusername":"Enter your username",
+    "passlabel":"Password",
+    "enterpass":"Enter your password",
+    "enterbutton":"Sign in",
+     "errorusername":"Enter at least 6 characters in the correct format",
+    "errorpassword":"Enter at least 6 characters in the correct format"
 
   }

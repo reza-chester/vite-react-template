@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Ilight';
+    src: url(../assets/fonts/irancellfonts/TTF/Irancell-Light.ttf) format("truetype");
+    font-display: swap;
+
+  }
+  
+  @font-face {
+    font-family: 'Imedium';
+    src: url(../assets/fonts/irancellfonts/TTF/Irancell-Medium.ttf) format("truetype");
+    font-display: swap;
+
+  }
+  
+  @font-face {
+    font-family: 'Ibold';
+    src: url(../assets/fonts/irancellfonts/TTF/Irancell-Bold.ttf) format("truetype");
+    font-display: swap;
+
+  }
+  
+  @utility font-Ilight {
+    font-family: "Ilight";
+  }
+  
+  @utility font-Imedium {
+    font-family: "Imedium";
+  }
+  
+  @utility font-Ibold {
+    font-family: "Ibold";
+  }
+

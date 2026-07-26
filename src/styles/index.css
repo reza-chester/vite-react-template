@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "./theme.css";
+@import "./fonts.css";
+@import "./animations.css";
+@import "./utilities.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+#root{
+  height: 100%;
+}
+:root{
+  --font-family:'Ilight';
+}
