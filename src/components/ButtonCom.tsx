@@ -5,7 +5,7 @@ export default function ButtonCom({children,className,type,...props}:{children:R
    <button
    type={type}
    role="button"
-   className={`border-0 rounded-2xl p-3 text-[14px] bg-(--ir-yellow) w-full cursor-pointer text-[#111]
+   className={`rounded-2xl p-3 text-sm w-full cursor-pointer text-primary
     font-Imedium
     ${className}`}
    {...props}

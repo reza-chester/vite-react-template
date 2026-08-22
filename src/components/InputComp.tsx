@@ -6,9 +6,8 @@ export default function InputComp({className,placeholder,type,...props}:{type:st
     type={type}
     autoComplete="off"
     placeholder={placeholder}
-    className={`bg-black/35 border border-white/16
-       text-white rounded-xl p-3 outline-none
-        trans-border placeholder:text-[#7e8690] ${className}`}
+    className={`rounded-xl p-3 outline-none
+        trans-border text-primary placeholder:text-xs! placeholder:text-(--primary)/55 ${className}`}
     {...props}
     />
       

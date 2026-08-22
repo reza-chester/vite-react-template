@@ -1,43 +1,34 @@
 import Card from "../components/Card";
 import IrancellLogoFa from "../assets/irancell-logo-fa.png";
-import IrancellLogoEn from "../assets/irancell-logo-en.png";
-import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import i18n from "../i18n";
 import InputComp from "../components/InputComp";
-import { useEffect } from "react";
 import ButtonCom from "../components/ButtonCom";
 import { createApiEndpoint } from "../lib/axios";
 
-// interface LoginData {
-//   username: string;
-//   password: string;
-// }
+interface LoginData {
+  username: string;
+  password: string;
+}
 
-// interface LoginResponse {
-//   token: string;
-//   expireDate:Date
-// }
+
 export default function Login() {
-  const lang = i18n.language;
-  const { t } = useTranslation("login");
   const passregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
 
   const loginSchema = z.object({
     username: z
       .string()
-      .min(5, { message: t("errorusername") })
+      .min(5, { message:  "حداقل 5 کاراکتر"})
       .regex(/\./, {
-        message: t("errorusername"),
+        message: "لطفا با شکل صحیح نام کاربری خود را وارد نمایید",
       }),
     password: z
       .string()
-      .min(6, { message: t("errorpassword") })
+      .min(6, { message: "حداقل 6 کاراکتر" })
       .regex(
         passregex,
-        { message: t("errorpassword") }
+        { message: "لطفا با شکل صحیح پسورد خود را وارد نمایید" }
       ),
   });
   type LoginFormData = z.infer<typeof loginSchema>;
@@ -58,11 +49,11 @@ export default function Login() {
 
     try {
       const loginApi = createApiEndpoint('Login');
-      await loginApi.post<unknown>({
+      const logdata:LoginData={
         username: data.username,
         password: data.password,
-      })
-      // await new Promise((resolve) => setTimeout(resolve, 1500));
+      }
+      await loginApi.post<unknown>(logdata)
       alert("ورود با موفقیت انجام شد!");
       reset();
     } catch (error) {
@@ -70,53 +61,49 @@ export default function Login() {
       alert("خطا در ورود، لطفاً مجدداً تلاش کنید");
     }
   };
-useEffect(() => {
-  
-    reset()
-}, [i18n.language])
 
   return (
     <Card
-      className={"login-card text-center"}
+      className={"text-center p-6 w-1/3"}
       children={
         <>
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full items-center justify-center gap-2">
             <img
-              className="login-logo"
-              src={lang == "en" ? IrancellLogoEn : IrancellLogoFa}
+             className="w-25 mb-2"
+              src={IrancellLogoFa}
             />
+  <h1 className="login-name font-Ibold">titr2</h1>
 
-            <p className="login-eyebrow font">{t("p1")}</p>
-            <h1 className="login-name font-Ibold">{t("p2")}</h1>
-            <p className="login-heading">{t("entersignin")}</p>
-
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <p className="login-eyebrow font">titr1</p>
+          
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full rtl">
               <div className="flex flex-col gap-2 ">
-                <label className=" text-[#bfc4cc] text-[12px] text-start ms-2">
-                  {t("usernamelabel")}
+                <label className="text-(--primary)/85  text-[12px] text-start ms-2">
+                نام کاربری (username)
                 </label>
                 <InputComp
+                className="ltr text-start placeholder:text-end! border"
                   type="text"
-                  placeholder={t("enterusername")}
-                  onChange={(a:any)=> console.log(a)}
+                  placeholder={"نام کاربری خود را وارد نمایید"}
                   {...register("username")}
                 />
                 {errors.username && (
-                  <span className="text-start ms-2 text-[#f5222d] text-[11px]">
+                  <span className="text-start ms-2  text-xs text-error">
                     {errors.username.message}
                   </span>
                 )}
-                <label className=" text-[#bfc4cc] text-[12px] text-start ms-2 mt-1">
-                  {t("passlabel")}
+                <label className="text-(--primary)/85 text-[12px] text-start ms-2 mt-1">
+                رمز عبور (password)
                 </label>
 
                 <InputComp
+                className="ltr text-start placeholder:text-end! border"
                   type="password"
-                  placeholder={t("enterpass")}
+                  placeholder={"رمز عبور خود را وارد نمایید"}
                   {...register("password")}
                 />
                 {errors.password && (
-                  <span className="text-start ms-2 text-[#f5222d] text-[11px]">
+                  <span className="text-start ms-2  text-xs text-error">
                      {errors.password.message}
                   </span>
                 )}
@@ -124,8 +111,8 @@ useEffect(() => {
               
               <ButtonCom
               type="submit"
-              className="login-btn mt-9 mb-5"
-              children={t("enterbutton")}
+              className="login-btn mt-9 mb-5 border"
+              children={"ورود"}
               />
 
           

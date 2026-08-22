@@ -8,6 +8,13 @@
 #root{
   height: 100%;
 }
-:root{
-  --font-family:'Ilight';
+
+
+.rtl{
+direction: rtl;
 }
+.ltr{
+  direction: ltr;
+
+}
+

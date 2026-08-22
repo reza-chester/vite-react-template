@@ -9,7 +9,7 @@ export default function Card({
     className?:string,
   } & HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={`bg-white/4 border border-white/10 rounded-[25px] card-comp ${className}`} {...props}>
+    <div className={`border rounded-[25px] ${className}`} {...props}>
       {children}
     </div>
   )

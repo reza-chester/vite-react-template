@@ -2,42 +2,19 @@
 
     /* Colors */
   
-    --color-background: rgba(var(--background));
-    --color-background-secondary: rgba(var(--background-secondary));
-    --color-background-hover: rgba(var(--background-hover));
+
   
-    --color-primary: rgba(var(--primary));
-    --color-primary-75: rgba(var(--primary), .75);
-    --color-primary-50: rgba(var(--primary), .5);
-    --color-primary-25: rgba(var(--primary), .25);
-  
-    --color-primary-reverse: rgba(var(--primary-reverse));
-  
-    --color-secondary: rgba(var(--secondary));
-    --color-secondary-50: rgba(var(--secondary), .5);
-    --color-secondary-25: rgba(var(--secondary), .25);
-    --color-secondary-5: rgba(var(--secondary), .1);
-  
-    --color-secondary-reverse: rgba(var(--secondary-reverse));
-  
-    --color-accent: rgba(var(--accent));
-    --color-accent-hover: rgba(var(--accent-hover));
-  
-    --color-highlight: rgba(var(--highlight));
-  
-    --color-error: rgba(var(--error));
-    --color-success: rgba(var(--success));
-    --color-yellow: rgba(var(--yellow));
-    --color-shadow: rgba(var(--shadow));
-  
-    /* Font */
-  
-    --font-light: light;
-    --font-medium: medium;
-    --font-bold: bold;
+
+     
+      --color-yellow: #F4C300;
+      --color-green-yellow: #004E5B;
+      --color-primary:rgba(19, 19, 19);
+      --color-error:rgba(199, 12, 12);
+   
+
   
     /* Font Size */
-  
+    --font-family:'Ilight';
     --text-xs: 12px;
     --text-sm: 14px;
     --text-base: 16px;

@@ -5,8 +5,17 @@ import menuSlice from "./Reducers/menuSlice";
 import themeSlice from "./Reducers/themeSlice";
 import fileUploadSlice from "./Reducers/fileUploadSlice";
 import adminAccessSlice from "./Reducers/adminAccessSlice";
-import userLevelAccessSlice from "./Reducers/userLevelAccessSlice";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import userProfileSlice  from "./Reducers/userProfileSlice";
+import storageModule from "redux-persist/lib/storage";
+import modalSlice from "./Reducers/modalSlice";
+import lightboxSlice from "./Reducers/lightboxSlice";
+
+const storage =
+  "default" in storageModule
+    ? storageModule.default
+    : storageModule;
+
+
 // import.meta.env.DEV      // true در npm run dev
 // import.meta.env.PROD    
 // import.meta.env.MODE     // "development" | "production"
@@ -16,21 +25,22 @@ const reducers = combineReducers({
   theme: themeSlice,
   fileUpload: fileUploadSlice,
   adminAccess: adminAccessSlice,
-  levelAccess: userLevelAccessSlice
+  userProfile:userProfileSlice,
+  modal:modalSlice,
+  lightbox:lightboxSlice
+
 });
 const persistConfig = {
-  key: "root",
+  key: "process-hub",
   storage,
   blacklist: [
     "menu",
+    "modal",
     "fileUpload",
     "theme",
     "adminAccess",
-    "levelAccess",
-    "error",
-    "load",
-    "userPageAccess",
-    "userTypeLevel2Access"
+    "userProfile",
+    "lightbox"
   ],
 };
 
@@ -45,3 +55,4 @@ export const store = configureStore({
       serializableCheck: false,
     }),
 });
+
